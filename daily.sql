@@ -12,37 +12,39 @@ CREATE TABLE users(
     lastname VARCHAR,
     bio VARCHAR,
     proPic VARCHAR
-)
+);
 
 CREATE TABLE albums(
 id SERIAL PRIMARY KEY,
+album_title VARCHAR,
 owner_id INT REFERENCES users(id) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE posts(
     id SERIAL PRIMARY KEY,
     post_id INT REFERENCES album(owner_id) ON DELETE CASCADE,
     body VARCHAR
-)
+);
 
 CREATE TABLE likes(
     id SERIAL PRIMARY KEY, 
     liker_id INT REFERENCES users(id) ON DELETE CASCADE,
     post_id INT REFERENCES post(post_id) ON DELETE CASCADE
-)
+);
 
 CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
     comment_id INT REFERENCES post(post_id) ON DELETE CASCADE,
     commenter_id INT REFERENCES users(id) ON DELETE CASCADE,
     comment VARCHAR
-)
+);
 
 CREATE TABLE pictures(
     id SERIAL PRIMARY KEY,
     pic_id INT REFERENCES post(post_id) ON DELETE CASCADE,
+    body VARCHAR
 
-)
+);
 
 INSERT INTO users( firstname, lastname, bio, proPic)
 VALUES('John', 'Smith', 'I LOVE PIZZA!', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm9z3wJSpof47czB3cgXlkQ8AD8CcxPNKwwKJs1DY6X8di6X-R&s'),
@@ -73,17 +75,17 @@ INSERT INTO comments(comment_id, commenter_id, comment)
           (3, 2,  'This is The BEST SPOT FOR TACOS'),
           (4, 1,   'Must Try');
 
-INSERT INTO albums(owner_id)
-    VALUES(1),
-          (2),
-          (3),
-          (4);
+INSERT INTO albums(owner_id, name)
+    VALUES(1, "todays meal"),
+          (2, "happy" ),
+          (3, "here to inspire"),
+          (4, "you hungry?");
 
-INSERT INTO pictures(pic_id)
-VALUES (2),
-       (3),
-       (4),
-       (5);
+INSERT INTO pictures(pic_id, body)
+VALUES (2, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9suKajJ6X3NB7qAB_sq4dxZH3sN4iFXnztmHVV96S8VaPC2eq&s"),
+       (3, "https://www.foodrepublic.com/wp-content/uploads/2017/11/applepie.jpg"),
+       (4, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSycpiHrfz6EoG2ea-5pRK7hAROHp61bZKoVMN-zkRLgEGcdurQWw&s"),
+       (1, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE3txCZgnGLpRVU033OHrtwDwa5qAC0mZQ_xPH61cPpMOW8NfR_w&s");
 
            
        
