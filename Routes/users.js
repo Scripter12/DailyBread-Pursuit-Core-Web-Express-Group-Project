@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
 const pgp = require('pg-promise')()
 const connectionString ="postgres://localhost:3000/dailyBread"
 const db = pgp(connectionString);
@@ -19,7 +18,6 @@ router.get('/users', async (req, res) => {
     }
     });
     
-
 router.get('/users/:id', async (req,res) =>{
 try{
     let getUser = await db.any(`SELECT * FROM users WHERE id = ${req.params.id}`)
@@ -55,13 +53,11 @@ router.post('/users', async (req,res) => {
     }
 });
 
-router.delete('/users/:id', (req,res) => {
+// router.delete('/users/:id', (req,res) => {
 
-    let deleteUser = `DELETE FROM users WHERE id = ${req.body.id}`
+//     let deleteUser = `DELETE FROM users WHERE id = ${req.body.id}`
     
-
-
-})
+// })
 
 
 //Export

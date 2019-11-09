@@ -8,6 +8,7 @@ const likesRouter = require('./Routes/likes');
 const pictureRouter = require('./Routes/pictures');
 const postRouter = require('./Routes/posts');
 const commentsRouter = require('./Routes/comments');
+const cors = require('cors')
 
 app.use(cors())
 
