@@ -8,6 +8,13 @@ const likesRouter = require('./Routes/likes');
 const pictureRouter = require('./Routes/pictures');
 const postRouter = require('./Routes/posts');
 const commentsRouter = require('./Routes/comments');
+const cors = require('cors')
+
+app.use(cors())
+
+app.use(express.urlencoded({
+    extended:false
+}))
 
 app.use('/users', userRouter);
 app.use('/album', albumRouter);
