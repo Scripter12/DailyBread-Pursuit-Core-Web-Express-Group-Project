@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const pgp = require('pg-promise')()
-const connectionString ="postgres://localhost:3000/dailyBread"
+const connectionString ="postgres://localhost:5432/dailyBread"
 const db = pgp(connectionString);
 
 router.get('/users', async (req, res) => {
