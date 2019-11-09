@@ -8,7 +8,7 @@ CREATE DATABASE dailyBread;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
-    firtname VARCHAR,
+    firstname VARCHAR,
     lastname VARCHAR,
     bio VARCHAR,
     proPic VARCHAR
