@@ -54,7 +54,7 @@ VALUES('John', 'Smith', 'I LOVE PIZZA!', 'https://encrypted-tbn0.gstatic.com/ima
 INSERT INTO posts(post_id, body)
     VALUES(1, 'Yum'),
           (2, 'If You have not tried this, you need to NOW'),
-          (3, 'Do not say I did not put you on'),
+          (3, 'LIT'),
           (4, 'Sneaky Eats');
 
 INSERT INTO likes(liker_id, post_id)
