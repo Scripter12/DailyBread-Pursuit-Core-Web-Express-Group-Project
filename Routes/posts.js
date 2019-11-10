@@ -59,23 +59,9 @@ router.get('', async (req, res) => {
 
 router.patch('/:id', async (req, res) => {
     try{
-        let allPost = await db.any( `SELECT * FROM posts WHERE id = ${req.params.id}`)
-        let postUpdate = null;
+        
+    await db.one( `UPDATE posts SET body =  ${req.params.body} WHERE post_id = ${req.params.post_id} AND id = $1`)
     
-        for(let i = 0; i <= allPost; i++){
-            if(allPost[i] === req.params.id){
-                postUpdate = id[i]
-            }
-        }
-        if(postUpdate !== null){
-            postUpdate.id = id
-            postUpdate.body = body
-    
-            res.json({
-                id: postUpdate.id,
-                body:  postUpdate.body
-            })
-        }
     }catch(error){
         message:error
     }
