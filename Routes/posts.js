@@ -60,7 +60,7 @@ router.get('', async (req, res) => {
 router.patch('/:id', async (req, res) => {
     try{
         
-    await db.one( `UPDATE posts SET body =  ${req.params.body} WHERE post_id = ${req.params.post_id} AND id = $1`)
+    await db.one( `UPDATE posts SET body =  ${req.body} WHERE post_id = ${req.params.post_id}`)
     
     }catch(error){
         message:error
