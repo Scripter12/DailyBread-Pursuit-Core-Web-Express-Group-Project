@@ -42,7 +42,7 @@ router.post('/', async (req,res) => {
         let insertQuery = `INSERT into users(firstname, lastname, bio, proPic)
         VALUES($1, $2, $3, $4)`
 
-        if(!insertQuery){
+        if(!firstname || !lastname){
             res.json({
                 message: "Information Missing"
             })
