@@ -54,20 +54,15 @@ router.post('', async (req, res) => {
 })
 
 router.patch('/:id', async (req, res) => {
-
-    try{
-    await db.none( `UPDATE posts SET body = '${req.body.key}' WHERE id = ${req.params.id}`)
-    res.json({
-        message: "updated post"
-    })
+    try{ 
+    await db.one( `UPDATE posts SET body =  ${req.body} WHERE post_id = ${req.params.post_id}`)
     }catch(error){
         console.log(error)
         res.send({
             'error': error
         })
+    }   
 })
-
-
 
 //Export
 module.exports = router
