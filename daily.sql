@@ -41,7 +41,7 @@ CREATE TABLE comments(
 
 CREATE TABLE pictures(
     id SERIAL PRIMARY KEY,
-    pic_id INT REFERENCES posts(id) ON DELETE CASCADE,
+    album_id INT REFERENCES albums(id) ON DELETE CASCADE,
     body VARCHAR
 );
 
