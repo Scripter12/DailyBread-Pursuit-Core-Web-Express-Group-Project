@@ -1,0 +1,124 @@
+body{
+    background-color: dimgray;
+}
+
+#menu{
+    width: 35px;
+    height: 30px;
+    margin: 30px 0 20px 20px;
+    cursor: pointer;
+}
+
+.bar{
+    height: 5px;
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    background-color: chocolate;
+    transition: 0.3s ease;
+}
+
+
+
+#bar1{
+    transform: translateY(-4px);
+}
+
+
+
+#bar3{
+    transform: translateY(4px);
+}
+
+#menu-bar{
+    float: left;
+}
+
+#site-name{
+    float: left;
+    line-height: 40px;
+    padding-left: 50px;
+    color: chocolate;
+    font-weight: bolder;
+    font-size: 100%
+}
+
+#logo{
+    float: left;
+    height: 50px;
+    width: 50px;
+}
+
+#menu-text{
+    float: left;
+    line-height: 45px;
+    padding-left: 5px;
+    color: chocolate;
+    font-weight: bolder;
+    font-size: 100%
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100vw;
+}
+
+
+
+.top{
+    height: 10vh;
+    grid-template-columns: 10%, 90%;
+}
+
+.middle{
+    height: 90vh;
+}
+
+.nav li a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.nav li a:hover{
+    font-weight: bold;
+    color: chocolate;
+}
+
+.nav li{
+    list-style: none;
+    padding: 16px 0;
+}
+
+.nav{
+    padding: 0;
+    margin: 0 20px;
+    transition: 0.3s ease;
+    display: none;
+
+}
+
+.change-bg{
+    width: 550px;
+    height: 540px;
+}
+
+.change .bar{
+    background-color: aliceblue;
+}
+
+.change #bar1{
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar3{
+    transform: translateY(-4px) rotate(45deg);
+}
+
+.change #bar2{
+    opacity: 0;
+}
+
+.change{
+    display: block;
+}
