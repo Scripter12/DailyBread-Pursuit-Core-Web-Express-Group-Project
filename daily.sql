@@ -80,7 +80,7 @@ INSERT INTO albums(owner_id, album_title)
           (3, 'here to inspire'),
           (4, 'you hungry?');
 
-INSERT INTO pictures(pic_id, body)
+INSERT INTO pictures(album_id, body)
 VALUES (2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9suKajJ6X3NB7qAB_sq4dxZH3sN4iFXnztmHVV96S8VaPC2eq&s'),
        (3, 'https://www.foodrepublic.com/wp-content/uploads/2017/11/applepie.jpg'),
        (4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSycpiHrfz6EoG2ea-5pRK7hAROHp61bZKoVMN-zkRLgEGcdurQWw&s'),
