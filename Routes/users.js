@@ -44,7 +44,7 @@ router.post('/', async (req,res) => {
 
         if(!firstname || !lastname){
             res.json({
-                message: "Information Missing"
+                "message": "Information Missing"
             })
         }else{
             await db.none(insertQuery, [req.body.firstname, req.body.lastname, req.body.bio, req.body.proPic]);
