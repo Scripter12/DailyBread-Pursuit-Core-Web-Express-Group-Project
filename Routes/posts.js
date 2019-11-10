@@ -56,16 +56,10 @@ router.post('', async (req, res) => {
 router.patch('/:id', async (req, res) => {
 
     try{
-<<<<<<< HEAD
-        
-    await db.one( `UPDATE posts SET body =  ${req.body} WHERE post_id = ${req.params.post_id}`)
-    
-=======
     await db.none( `UPDATE posts SET body = '${req.body.key}' WHERE id = ${req.params.id}`)
     res.json({
         message: "updated post"
     })
->>>>>>> 6ca6846ae4a5ebc4ae224fbcc186328dfdf6defd
     }catch(error){
         console.log(error)
         res.send({
