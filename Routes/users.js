@@ -5,7 +5,7 @@ const pgp = require('pg-promise')()
 const connectionString ="postgres://localhost:5432/dailybread"
 const db = pgp(connectionString);
 
-router.get('/all', async (req, res) => {
+router.get('', async (req, res) => {
     try{
         let allUsers = await db.any("SELECT * FROM users");
 
@@ -42,12 +42,18 @@ router.post('/', async (req,res) => {
         let insertQuery = `INSERT into users(firstname, lastname, bio, proPic)
         VALUES($1, $2, $3, $4)`
 
-        await db.none(insertQuery, [req.body.firstname, req.body.lastname, req.body.bio, req.body.proPic]);
+        if(!insertQuery){
+            res.json({
+                message: "Information Missing"
+            })
+        }else{
+            await db.none(insertQuery, [req.body.firstname, req.body.lastname, req.body.bio, req.body.proPic]);
     
-        res.json({
-            user: insertQuery,
-            message:"posted"
-        })
+            res.json({
+                user: insertQuery,
+                message:"posted"
+            })
+        } 
     }catch(error){
         res.json({
             message:error
