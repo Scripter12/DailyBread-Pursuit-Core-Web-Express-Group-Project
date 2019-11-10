@@ -1,14 +1,6 @@
 const express = require('express')
-const pgp = require('pg-promise')
-const postClass = require("../Classes/comments.js");
 const router = express.Router()
-<<<<<<< HEAD
-const connectionString = "postgres://localhost:5432/dailyBread"
-const db = pgp(connectionString);
-=======
-const pgp = require('pg-promise')();
-const connectionString = "postgres://localhost:5432/dailybread"
-const db = pgp(connectionString);
+const db = require('./db')
 
 router.get('/posts/:post_id', async (req, res) => {
   try {
@@ -50,7 +42,6 @@ router.delete('/:post_id/:commenter_id', (req, res) => {
   }
 })
 
->>>>>>> 4acb0a0a33594bcb6a25e12fc5ee11b9ff609a53
 
 
 
