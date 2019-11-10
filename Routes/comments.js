@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const pgp = require('pg-promise')();
-const connectionString = "postgres://localhost:5432/dailybread"
-const db = pgp(connectionString);
+const db = require('./db')
 
 router.get('/posts/:post_id', async (req, res) => {
   try {
@@ -45,5 +43,16 @@ router.delete('/:post_id/:commenter_id', (req, res) => {
 })
 
 
+
+
+router.get("/posts/:post_id", (req, res) => {
+
+})
+
+router.post("/posts/:post_id/:commenter_id")
+
+router.patch(":post_id/commenter_id")
+
+router.delete(":post_id/commenter_id")
 //Export
 module.exports = router
