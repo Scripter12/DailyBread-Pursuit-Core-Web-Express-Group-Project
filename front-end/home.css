@@ -1,10 +1,10 @@
 body{
-    background-color: dimgray;
+    background-color: aliceblue;
 }
 
 #menu{
-    width: 35px;
-    height: 30px;
+    width: 25px;
+    height: 20px;
     margin: 30px 0 20px 20px;
     cursor: pointer;
 }
@@ -36,17 +36,36 @@ body{
 
 #site-name{
     float: left;
-    line-height: 40px;
-    padding-left: 50px;
+    line-height: 45px;
+    padding-left: 10vw;
     color: chocolate;
     font-weight: bolder;
-    font-size: 100%
+    font-size: 15px;
+}
+
+#username{
+    margin-left: 60vw;
+    text-align: center;
+    margin-top: 20vh;
+    border-radius: 5px;
+    width: 100px;
+}
+
+#password{
+    margin-left: 60vw;
+    text-align: center;
+    border-radius: 5px;
+    width: 100px;
+
 }
 
 #logo{
     float: left;
-    height: 50px;
-    width: 50px;
+    padding-left: 5px;
+    padding-top: 28px;
+    height: 20px;
+    width: 20px;
+    line-height: 45px;
 }
 
 #menu-text{
@@ -55,7 +74,7 @@ body{
     padding-left: 5px;
     color: chocolate;
     font-weight: bolder;
-    font-size: 100%
+    font-size: 15px;
 }
 
 .container {
@@ -76,8 +95,9 @@ body{
 }
 
 .nav li a{
-    color: aliceblue;
+    color: dimgray;
     text-decoration: none;
+    font-size: 10px;
 }
 
 .nav li a:hover{
@@ -104,7 +124,7 @@ body{
 }
 
 .change .bar{
-    background-color: aliceblue;
+    background-color: dimgray;
 }
 
 .change #bar1{
@@ -116,6 +136,10 @@ body{
 }
 
 .change #bar2{
+    opacity: 0;
+}
+
+.change #menu-text{
     opacity: 0;
 }
 
