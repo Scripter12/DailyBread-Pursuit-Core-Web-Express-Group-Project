@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const db = require('./db')
 
-
 router.get('/posts/:post_id', async (req,res) =>{
     let post_id = req.params.post_id
     try{
