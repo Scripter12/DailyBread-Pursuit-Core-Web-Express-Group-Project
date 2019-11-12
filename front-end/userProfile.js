@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   getAllPosts();
   pushAlbums()
+  let submitPost = document.querySelector("#submitPost");
+  submitPost.addEventListener('click', createPost);
 })
 
 async function getAllPosts() {
@@ -28,7 +30,7 @@ async function getAllPosts() {
 async function pushAlbums() {
   let albums = document.querySelector("#albums")
 
-  let response = await axios.get("http:localhost:3000/album/3");
+  let response = await axios.get("http://localhost:3000/album/3");
 
   response.data.albums.forEach(elem => {
     let album = document.createElement("option")
@@ -38,7 +40,12 @@ async function pushAlbums() {
 
 }
 
-async function createPost() {
-
+async function createPost(e) {
+  e.preventDefault();
+  let inputPost = document.querySelector("#inputPost").value
+  axios.post('http://localhost:3000/posts', {
+    post_id: 1,
+    body: inputPost
+  })
 }
 
