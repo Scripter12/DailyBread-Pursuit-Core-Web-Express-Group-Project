@@ -3,12 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
   pushAlbums()
   let submitPost = document.querySelector("#submitPost");
   submitPost.addEventListener('click', createPost);
+  let switchAlbum = document.querySelector('#albums');
+  switchAlbum.addEventListener("change", getPictures)
+  let addPic = document.querySelector("#submitPic")
+  addPic.addEventListener("click", addPicture)
 })
 
 async function getAllPosts() {
   let postContainer = document.querySelector("#posts");
   let response = await axios.get("http://localhost:3000/posts");
-
+  while (postContainer.firstChild) {
+    postContainer.removeChild(postContainer.firstChild)
+  }
   response.data.posts.forEach(elem => {
     let post = document.createElement("div");
     let bar = document.createElement("div");
@@ -16,6 +22,10 @@ async function getAllPosts() {
     let like = document.createElement("span");
     let comments = document.createElement("div");
     let likebutton = document.createElement("button");
+    post.setAttribute("class", "post")
+    bar.setAttribute("class", "bar")
+    comments.setAttribute("class", "comments")
+    likebutton.setAttribute("class", "likeButton")
     body.innerText = elem.body
     post.appendChild(body)
     post.appendChild(bar)
@@ -30,11 +40,12 @@ async function getAllPosts() {
 async function pushAlbums() {
   let albums = document.querySelector("#albums")
 
-  let response = await axios.get("http://localhost:3000/album/3");
+  let response = await axios.get("http://localhost:3000/album/1");
 
   response.data.albums.forEach(elem => {
     let album = document.createElement("option")
     album.innerText = elem.album_title
+    album.value = elem.id
     albums.appendChild(album)
   })
 
@@ -43,9 +54,37 @@ async function pushAlbums() {
 async function createPost(e) {
   e.preventDefault();
   let inputPost = document.querySelector("#inputPost").value
-  axios.post('http://localhost:3000/posts', {
+  await axios.post('http://localhost:3000/posts', {
     post_id: 1,
     body: inputPost
   })
+  getAllPosts()
 }
 
+async function getPictures() {
+  let pictureContainer = document.querySelector("#pictures");
+  while (pictureContainer.firstChild) {
+    pictureContainer.removeChild(pictureContainer.firstChild)
+  }
+  let albumId = document.querySelector("#albums").options
+  let id = albumId[albumId.selectedIndex].value
+  let response = await axios.get(`http://localhost:3000/pictures/albums/${id}`)
+  response.data.data.forEach(elem => {
+    let image = document.createElement("img")
+    image.src = elem.body
+    image.setAttribute("class", "picture")
+    pictureContainer.appendChild(image)
+  })
+}
+
+async function addPicture(e) {
+  e.preventDefault()
+  let inputPic = document.querySelector("#addPic").value
+  console.log(inputPic)
+  let albumId = document.querySelector("#albums").options
+  let id = albumId[albumId.selectedIndex].value
+  await axios.post(`http://localhost:3000/pictures/${id}`, {
+    url: inputPic
+  })
+  getPictures()
+}
