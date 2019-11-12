@@ -1,13 +1,13 @@
 -- uncomment bleow once database created
 
-DROP DATABASE dailyBread; 
+DROP DATABASE dailybread; 
 
 CREATE DATABASE dailybread;
 
 \c dailybread;
 
 CREATE TABLE users(
-    id SERIAL PRIMARY KEY,
+    users_id SERIAL PRIMARY KEY,
     firstname VARCHAR,
     lastname VARCHAR,
     bio VARCHAR,
@@ -15,33 +15,33 @@ CREATE TABLE users(
 );
 
 CREATE TABLE albums(
-id SERIAL PRIMARY KEY,
+albums_id SERIAL PRIMARY KEY,
 album_title VARCHAR,
-owner_id INT REFERENCES users(id) ON DELETE CASCADE
+owner_id INT REFERENCES users(users_id) ON DELETE CASCADE
 );
 
 CREATE TABLE posts(
-    id SERIAL PRIMARY KEY,
-    post_id INT REFERENCES users(id) ON DELETE CASCADE,
+    posts_id SERIAL PRIMARY KEY,
+    post_id INT REFERENCES users(users_id) ON DELETE CASCADE,
     body VARCHAR
 );
 
 CREATE TABLE likes(
-    id SERIAL PRIMARY KEY, 
-    liker_id INT REFERENCES users(id) ON DELETE CASCADE,
-    post_id INT REFERENCES posts(id) ON DELETE CASCADE
+    likes_id SERIAL PRIMARY KEY, 
+    liker_id INT REFERENCES users(users_id) ON DELETE CASCADE,
+    post_id INT REFERENCES posts(posts_id) ON DELETE CASCADE
 );
 
 CREATE TABLE comments(
-    id SERIAL PRIMARY KEY,
-    comment_id INT REFERENCES posts(id) ON DELETE CASCADE,
-    commenter_id INT REFERENCES users(id) ON DELETE CASCADE,
+    comments_id SERIAL PRIMARY KEY,
+    comment_id INT REFERENCES posts(posts_id) ON DELETE CASCADE,
+    commenter_id INT REFERENCES users(users_id) ON DELETE CASCADE,
     comment VARCHAR
 );
 
 CREATE TABLE pictures(
-    id SERIAL PRIMARY KEY,
-    album_id INT REFERENCES albums(id) ON DELETE CASCADE,
+    pictures_id SERIAL PRIMARY KEY,
+    album_id INT REFERENCES albums(albums_id) ON DELETE CASCADE,
     body VARCHAR
 );
 

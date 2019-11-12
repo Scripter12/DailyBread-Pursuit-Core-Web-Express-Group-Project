@@ -11,13 +11,11 @@ router.get('/likes/posts/:post_id', (req,res) =>{
 
             data : likes,
         })
-    }catch{
-        (error){
+    }catch(error){
             res.json({
                 'error' : error,
             })
         }
-    }
 })
 
 
