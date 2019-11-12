@@ -1,6 +1,7 @@
 -- uncomment bleow once database created
+-- uncomment bleow once database created
 
-DROP DATABASE dailyBread; 
+DROP DATABASE dailybread; 
 
 CREATE DATABASE dailybread;
 
@@ -85,6 +86,3 @@ VALUES (2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9suKajJ6X3NB7
        (3, 'https://www.foodrepublic.com/wp-content/uploads/2017/11/applepie.jpg'),
        (4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSycpiHrfz6EoG2ea-5pRK7hAROHp61bZKoVMN-zkRLgEGcdurQWw&s'),
        (1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE3txCZgnGLpRVU033OHrtwDwa5qAC0mZQ_xPH61cPpMOW8NfR_w&s');
-
-           
-       
