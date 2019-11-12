@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   getAllPosts();
+  pushAlbums()
 })
 
 async function getAllPosts() {
@@ -22,4 +23,22 @@ async function getAllPosts() {
     postContainer.appendChild(post)
   })
 
-} 
+}
+
+async function pushAlbums() {
+  let albums = document.querySelector("#albums")
+
+  let response = await axios.get("http:localhost:3000/album/3");
+
+  response.data.albums.forEach(elem => {
+    let album = document.createElement("option")
+    album.innerText = elem.album_title
+    albums.appendChild(album)
+  })
+
+}
+
+async function createPost() {
+
+}
+

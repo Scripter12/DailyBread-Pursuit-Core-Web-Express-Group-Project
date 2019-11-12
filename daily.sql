@@ -16,8 +16,8 @@ CREATE TABLE users(
 
 CREATE TABLE albums(
 id SERIAL PRIMARY KEY,
-album_title VARCHAR,
-owner_id INT REFERENCES users(id) ON DELETE CASCADE
+owner_id INT REFERENCES users(id) ON DELETE CASCADE,
+album_title VARCHAR
 );
 
 CREATE TABLE posts(
