@@ -3,7 +3,9 @@
 
 <head>
   <link href="./userProfile.css" rel="stylesheet" />
+
   <link href="./menu.css" rel="stylesheet" />
+
   <script src="./userProfile.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
@@ -45,12 +47,20 @@
   <div id="mainContainer">
     <div id="postContainer">
       <form>
-        <input placeholder="write a post" />
+        <input placeholder="write a post" id="inputPost" />
         <button id="submitPost"> submit</button>
       </form>
+      <div id="posts">
+
+      </div>
     </div>
     <div id="picContainer">
-      <select id="albums"></select>
+      <select id="albums">
+        <option>Choose an album</option>
+      </select>
+      <form>
+        <input id="addPic" placeholder="add picture" /> <button id="submitPic">add Picture</button>
+      </form>
       <div id="pictures"></div>
     </div>
   </div>
