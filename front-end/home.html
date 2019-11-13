@@ -1,40 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Daily Bread - Home</title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GRID!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./home.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./home.js"></script>
-    <link rel="stylesheet" href="./home.css">
-    <link rel="stylesheet" href="./menu.css">
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="top">
-            <div id="menu-bar">
-                <div id="menu" onclick="onClickMenu()">
-                    <div id="bar1" class="bar"></div>
-                    <div id="bar2" class="bar"></div>
-                    <div id="bar3" class="bar"></div>
-                </div>
-                <ul id ="nav" class="nav">
-                    <li> <a href="#">Home</a></li>
-                    <li> <a href="#">Users</a></li>
-                    <li> <a href="#">The Food Feed</a></li>
-                    <li> <a href="#">About</a></li>
-                    <li> <a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-                <p id= "menu-text">Menu</p>
-                <p id="site-name">Daily Bread</p>
-                <img src="./images/logo.png" alt="logo" id="logo"> 
-            </div>    
+     <div class="left">
+        <div id="menu-bar">
+            <div id="menu" onclick="onClickMenu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div> 
+            <p id="menu-text"> Menu</p>
+            <ul id ="nav" class="nav">
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">Profile</a></li>
+                <li> <a href="#">The Feed</a></li>
+                <li> <a href="#">Search</a></li>
+                <li> <a href="#">Log Out</a></li>
+            </ul>
         </div>
-        <div class="middle">
+     </div>
+     <div class="right">
+      
+      <div class="top">
+        <div class="Title">
+            <p id="site-name">Daily Bread</p> 
         </div>
+        <div class="login-area">
+            <br>
+            <input id = username type="text" placeholder="username"> 
+            <input id = password type="password" placeholder="password">
+            <br>
+            <br>
+            <button>Log-In</button>
+            <br>
+            <br>
+            <h4 id="or-sign">Or</h4>
+            <br>
+            <button id="sign-up-button">Sign Up</button>
+        </div>
+      </div>
+      
+      <div class="bottom">
+        <img src="./images/phrase.png" alt="phrase">
+      </div>
+     
     </div>
-</body>
+   </div>
+  </body>
 </html>

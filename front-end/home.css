@@ -1,3 +1,24 @@
+*{
+    margin: 0;
+    border: 0;
+    text-align: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: 98vh 2vh;
+}
+
+.right{
+    display: grid;
+}
+
+.top{
+    display: grid;
+}
+
+
 body{
     background-color: aliceblue;
 }
@@ -31,34 +52,39 @@ body{
 }
 
 #site-name{
-    float: left;
     line-height: 45px;
-    padding-left: 10vw;
     color: chocolate;
     font-weight: bolder;
-    font-size: 15px;
+    font-size: 30px;
 }
 
 #username{
-    margin-left: 60vw;
     text-align: center;
-    margin-top: 20vh;
     border-radius: 5px;
     width: 100px;
 }
 
 #password{
-    margin-left: 60vw;
     text-align: center;
     border-radius: 5px;
     width: 100px;
 
 }
 
+#or-sign{
+    color: chocolate;
+}
+
+button{
+    color: white;
+    background-color: chocolate;
+    border-radius: 10px;
+}
+
 #logo{
     float: left;
     padding-left: 5px;
-    padding-top: 28px;
+    padding-top: 4%;
     height: 20px;
     width: 20px;
     line-height: 45px;
@@ -66,34 +92,16 @@ body{
 
 #menu-text{
     float: left;
-    line-height: 45px;
-    padding-left: 5px;
+    padding-left: 12px;
     color: chocolate;
     font-weight: bolder;
     font-size: 15px;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100vw;
-}
-
-
-
-.top{
-    height: 10vh;
-    grid-template-columns: 10%, 90%;
-}
-
-.middle{
-    height: 90vh;
-}
-
 .nav li a{
     color: dimgray;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .nav li a:hover{
