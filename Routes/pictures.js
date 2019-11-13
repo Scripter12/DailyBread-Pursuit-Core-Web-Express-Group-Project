@@ -15,7 +15,7 @@ router.get('/albums/:album_id', async (req, res) => {
   }
 })
 
-router.post('/:album_id', async (req, res) => {
+router.post('albums/:album_id', async (req, res) => {
   try {
    await db.none(`INSERT INTO pictures(album_id,body) VALUES(${req.params.album_id},$1)`)
   }
