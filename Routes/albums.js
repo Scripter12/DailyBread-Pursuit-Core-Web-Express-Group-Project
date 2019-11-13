@@ -4,7 +4,7 @@ const db = require('./db')
 
 router.get('/:owner_id', async (req, res) => {
     try{
-        let album = await db.any(`SELECT * FROM albums WHERE owner_id = ${req.params.owner_id}`);
+        let album = await db.any(`select * from albums WHERE owner_id = ${req.params.owner_id}`);
     res.json({
         album: album,
         message: "success"
@@ -15,7 +15,8 @@ router.get('/:owner_id', async (req, res) => {
     res.json({
         message: error
     })
-}
+    }
+})
 
 router.post('/:owner_id', async (req, res) => {
     
