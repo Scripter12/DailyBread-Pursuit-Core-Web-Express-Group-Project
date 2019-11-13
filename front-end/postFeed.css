@@ -1,21 +1,8 @@
 *{
-    margin: 0;
+    margin: 1px;
     border: 0;
     text-align: center;
 }
-
-button{
-    color: dodgerblue;
-    background-color: aliceblue;
-    border-radius: 10px;
-}
-
-body{
-    background-color: #969696;
-    background-image: url('./images/diagmonds.png');
-    color: aliceblue;
-}
-
 
 .container{
     display: grid;
@@ -25,14 +12,30 @@ body{
 
 .right{
     display: grid;
+    grid-template-rows: 25% 75%;
 }
 
-.top{
-    display: grid;
-}
+
 
 .bottom{
-  display: grid;
+    border: 2px solid aliceblue;
+    padding-left: 5px;
+}
+
+
+
+
+body{
+    background-color: #969696;
+    background-image: url('./images/diagmonds.png');
+    color: aliceblue;
+}
+
+#menu{
+    width: 25px;
+    height: 20px;
+    margin: 30px 0 20px 20px;
+    cursor: pointer;
 }
 
 .bar{
@@ -44,13 +47,6 @@ body{
     transition: 0.3s ease;
 }
 
-#menu{
-    width: 25px;
-    height: 20px;
-    margin: 30px 0 20px 20px;
-    cursor: pointer;
-}
-
 #bar1{
     transform: translateY(-4px);
 }
@@ -59,19 +55,17 @@ body{
     transform: translateY(4px);
 }
 
-#profilePic {
-  width:100px;
-  height:100px;
-  border-radius:50px;
-  }
-
 #menu-bar{
     float: left;
 }
 
+#feed-title{
+    color: chocolate;
+    font-weight: bold;
+}
+
 #site-name{
     line-height: 45px;
-    color: aliceblue;
     font-weight: bolder;
     font-size: 30px;
 }

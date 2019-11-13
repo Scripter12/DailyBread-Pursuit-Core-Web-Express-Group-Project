@@ -4,6 +4,18 @@
     text-align: center;
 }
 
+button{
+    color: dodgerblue;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+body{
+    background-color: #969696;
+    background-image: url('./images/diagmonds.png');
+}
+
+
 .container{
     display: grid;
     grid-template-columns: 10% 90%;
@@ -18,25 +30,20 @@
     display: grid;
 }
 
-
-body{
-    background-color: aliceblue;
-}
-
-/* #menu{
-    width: 25px;
-    height: 20px;
-    margin: 30px 0 20px 20px;
-    cursor: pointer;
-}
-
 .bar{
     height: 5px;
     width: 100%;
     display: block;
     border-radius: 5px;
-    background-color: chocolate;
+    background-color: aliceblue;
     transition: 0.3s ease;
+}
+
+#menu{
+    width: 25px;
+    height: 20px;
+    margin: 30px 0 20px 20px;
+    cursor: pointer;
 }
 
 #bar1{
@@ -53,7 +60,7 @@ body{
 
 #site-name{
     line-height: 45px;
-    color: chocolate;
+    color: aliceblue;
     font-weight: bolder;
     font-size: 30px;
 }
@@ -72,13 +79,7 @@ body{
 }
 
 #or-sign{
-    color: chocolate;
-}
-
-button{
-    color: white;
-    background-color: chocolate;
-    border-radius: 10px;
+    color: aliceblue;
 }
 
 #logo{
@@ -93,20 +94,25 @@ button{
 #menu-text{
     float: left;
     padding-left: 12px;
-    color: chocolate;
+    color: aliceblue;
     font-weight: bolder;
     font-size: 15px;
 }
 
+#phrase{
+    height:150px;
+    width: 230px;
+}
+
 .nav li a{
-    color: dimgray;
+    color: aliceblue;
     text-decoration: none;
     font-size: 15px;
 }
 
 .nav li a:hover{
     font-weight: bold;
-    color: chocolate;
+    color: dodgerblue;
 }
 
 .nav li{
@@ -128,7 +134,7 @@ button{
 }
 
 .change .bar{
-    background-color: dimgray;
+    background-color: aliceblue;
 }
 
 .change #bar1{
@@ -149,4 +155,4 @@ button{
 
 .change{
     display: block;
-} */
+}
