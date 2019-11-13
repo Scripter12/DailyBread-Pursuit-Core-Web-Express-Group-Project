@@ -14,3 +14,6 @@ const onClickMenu= () => {
     }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    
+})

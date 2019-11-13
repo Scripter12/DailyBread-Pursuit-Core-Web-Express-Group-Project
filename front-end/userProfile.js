@@ -14,7 +14,7 @@ const onClickMenu= () => {
     }
     
 }
-
+                                                                                  
 document.addEventListener('DOMContentLoaded', () => {
   getAllPosts();
   pushAlbums()
