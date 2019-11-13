@@ -33,14 +33,14 @@ router.get('/:posts_id', async (req, res) => {
 
 router.post('', async (req, res) => {
     try {
-        let insertQuery = `INSERT into posts(post_id, body)
+        let insertQuery = `INSERT into posts(poster_id, body)
                 VALUES($1, $2)`
         if (!insertQuery) {
             res.json({
                 message: "information Missing"
             })
         } else {
-            await db.none(insertQuery, [req.body.post_id, req.body.body])
+            await db.none(insertQuery, [req.body.poster_id, req.body.body])
             res.json({
                 post: req.body,
                 message: "posted"
@@ -64,6 +64,25 @@ router.patch('/:id', async (req, res) => {
         console.log(error)
         res.send({
             'error': error
+        })
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    try {
+        let deletedPost = await db.none(`DELETE FROM posts WHERE id = ${req.params.id}`);
+
+        res.json({
+            status: "Success",
+            message: "Deleted Post",
+            body: {
+                data: deletedPost
+            }
+        })
+    }
+    catch (error) {
+        res.json({
+            message: error
         })
     }
 })
