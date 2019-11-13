@@ -1,18 +1,18 @@
-const onClickMenu= () => {
-    document.querySelector('#menu').classList.toggle('change');
-    
-    document.querySelector('#nav').classList.toggle('change');
+const onClickMenu = () => {
+  document.querySelector('#menu').classList.toggle('change');
 
-    document.querySelector('#menu-text').classList.toggle('change');
-    
-    let menu_text = document.querySelector('#menu-text')
-    
-    if(menu_text.classList.value){
-        menu_text.innerText = ''
-    }else{
-        menu_text.innerText = 'Menu'
-    }
-    
+  document.querySelector('#nav').classList.toggle('change');
+
+  document.querySelector('#menu-text').classList.toggle('change');
+
+  let menu_text = document.querySelector('#menu-text')
+
+  if (menu_text.classList.value) {
+    menu_text.innerText = ''
+  } else {
+    menu_text.innerText = 'Menu'
+  }
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let submitPost = document.querySelector("#submitPost");
   submitPost.addEventListener('click', createPost);
   let switchAlbum = document.querySelector('#albums');
-  switchAlbum.addEventListener("change", getPictures)
-  let addPic = document.querySelector("#submitPic")
-  addPic.addEventListener("click", addPicture)
+  // switchAlbum.addEventListener("change", getPictures)
+  let addPic = document.querySelector("#picSubmit")
+  addPic.addEventListener("submit", addPicture)
 })
 
 async function getAllPosts() {
@@ -32,12 +32,26 @@ async function getAllPosts() {
   while (postContainer.firstChild) {
     postContainer.removeChild(postContainer.firstChild)
   }
-  response.data.posts.forEach(elem => {
+
+  response.data.posts.forEach(async (elem) => {
+    let commentsData = await axios.get(`http://localhost:3000/posts/${elem.id}`)
+    console.log(commentsData, 'cData')
+
+    let comArr = commentsData.data.post.map(elem => {
+      let p = document.createElement("p")
+      p.innerText = elem.body
+      return p
+    })
+    console.log(comArr)
     let post = document.createElement("div");
     let line = document.createElement("div");
     let body = document.createElement("p");
     let like = document.createElement("span");
     let comments = document.createElement("div");
+
+    comArr.forEach(elem => {
+      comments.appendChild(elem)
+    })
     let likebutton = document.createElement("button");
     post.setAttribute("class", "post")
     line.setAttribute("class", "line")
@@ -57,7 +71,7 @@ async function getAllPosts() {
 async function pushAlbums() {
   let albums = document.querySelector("#albums")
 
-  let response = await axios.get("http://localhost:3000/album/1");
+  let response = await axios.get("http://localhost:3000/album/2");
 
   response.data.albums.forEach(elem => {
     let album = document.createElement("option")
@@ -78,7 +92,7 @@ async function createPost(e) {
   getAllPosts()
 }
 
-async function getPictures() {
+async function getPictures(e) {
   let pictureContainer = document.querySelector("#pictures");
   while (pictureContainer.firstChild) {
     pictureContainer.removeChild(pictureContainer.firstChild)
@@ -87,10 +101,22 @@ async function getPictures() {
   let id = albumId[albumId.selectedIndex].value
   let response = await axios.get(`http://localhost:3000/pictures/albums/${id}`)
   response.data.data.forEach(elem => {
+    let imgContainer = document.createElement("div")
     let image = document.createElement("img")
     image.src = elem.body
+    let deleteBtn = document.createElement("button")
+    deleteBtn.setAttribute('class', "deleteBtn")
+    deleteBtn.value = elem.id
+    imgContainer.appendChild(image)
+    imgContainer.appendChild(deleteBtn)
     image.setAttribute("class", "picture")
-    pictureContainer.appendChild(image)
+    pictureContainer.appendChild(imgContainer)
+  })
+  let deleteBtnList = document.querySelectorAll(".deleteBtn")
+  console.log(deleteBtnList)
+  deleteBtnList.forEach(elem => {
+    console.log(elem, elem.value)
+    elem.addEventListener("click", deletePicture(elem.value))
   })
 }
 
@@ -105,3 +131,9 @@ async function addPicture(e) {
   })
   getPictures()
 }
+
+async function deletePicture(id) {
+
+  await axios.delete(`http://localhost:3000/pictures/${id}`)
+}
+
