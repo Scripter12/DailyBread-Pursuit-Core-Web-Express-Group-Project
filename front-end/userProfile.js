@@ -44,7 +44,7 @@ async function getAllPosts() {
     })
     console.log(comArr)
     let post = document.createElement("div");
-    let bar = document.createElement("div");
+    let line = document.createElement("div");
     let body = document.createElement("p");
     let like = document.createElement("span");
     let comments = document.createElement("div");
@@ -54,15 +54,15 @@ async function getAllPosts() {
     })
     let likebutton = document.createElement("button");
     post.setAttribute("class", "post")
-    bar.setAttribute("class", "bar")
+    line.setAttribute("class", "line")
     comments.setAttribute("class", "comments")
     likebutton.setAttribute("class", "likeButton")
     body.innerText = elem.body
     post.appendChild(body)
-    post.appendChild(bar)
-    bar.appendChild(likebutton)
-    bar.appendChild(like)
-    bar.appendChild(comments)
+    post.appendChild(line)
+    line.appendChild(likebutton)
+    line.appendChild(like)
+    line.appendChild(comments)
     postContainer.appendChild(post)
   })
 

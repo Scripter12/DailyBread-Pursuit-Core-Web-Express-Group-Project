@@ -1,58 +1,53 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <link href="./userProfile.css" rel="stylesheet" />
-
-  <link href="./menu.css" rel="stylesheet" />
-
-  <script src="./userProfile.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
-
-<body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Daily Bread - Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./userProfile.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./userProfile.js"></script>
+  </head>
+  <body>
+    <div class="container">
+     <div class="left">
         <div id="menu-bar">
-            <div>
-                <p id= "menu-text">Menu</p>
-                <p id="site-name">Daily Bread</p>
-                <img src="./images/logo.png" alt="logo" id="logo"> 
-            </div>  
             <div id="menu" onclick="onClickMenu()">
                 <div id="bar1" class="bar"></div>
                 <div id="bar2" class="bar"></div>
                 <div id="bar3" class="bar"></div>
-            </div>
+            </div> 
+            <p id="menu-text"> Menu</p>
             <ul id ="nav" class="nav">
-                <li> <a href="#">Home</a></li>
-                <li> <a href="#">Users</a></li>
-                <li> <a href="#">The Food Feed</a></li>
-                <li> <a href="#">About</a></li>
-                <li> <a href="#">Contact Us</a></li>
-            </ul> 
-
-</div>  
-
-<div id="userContainer">
-    <div id="picNameContain">
-      <img
-        src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555921064/shape/mentalfloss/spongebob_0_0.jpg"
-        id="profilePic" />
-      <p id="name">name</p>
-    </div>
-    <div id="bioContain">
-      <p id="bio">bio</p>
-    </div>
-  </div>
-
-  <div id="mainContainer">
-    <div id="postContainer">
-      <form>
-        <input placeholder="write a post" id="inputPost" />
-        <button id="submitPost"> submit</button>
-      </form>
-      <div id="posts">
-
+                <li> <a href="home.html">Home</a></li>
+                <li> <a href="./userProfile.html">Profile</a></li>
+                <li> <a href="./postFeed.html">The Feed</a></li>
+                <li> <a href="#">Search</a></li>
+                <li> <a href="#">Log Out</a></li>
+            </ul>
+        </div>
+     </div>
+     <div class="right">
+      
+      <div class="top">
+        <div class="Title">
+            <p id="site-name">Daily Bread</p> 
+        </div>
+        <div class="profile-area">
+            <div id="userContainer">
+                <div id="picNameContain">
+                  <img
+                    src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555921064/shape/mentalfloss/spongebob_0_0.jpg"
+                    id="profilePic" />
+                  <p id="name">name</p>
+                </div>
+                <div id="bioContain">
+                  <p id="bio">bio</p>
+                </div>
+              </div>
+        </div>
       </div>
+
     </div>
     <div>
       <form id="picSubmit">
@@ -70,4 +65,20 @@
   </div>
 </body>
 
+      <div class="bottom">
+          <div id="mainContainer">
+              <div id="postContainer">
+                <form>
+                  <input placeholder="write a post" id="inputPost" />
+                  <button id="submitPost"> submit</button>
+                </form>
+                <div id="posts">
+          
+                </div>
+              </div>
+          </div>
+     
+    </div>
+   </div>
+  </body>
 </html>
