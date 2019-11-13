@@ -21,7 +21,7 @@ app.use(express.urlencoded({
 }))
 
 app.use('/users', userRouter);
-app.use('/album', albumRouter);
+app.use('/albums', albumRouter);
 app.use('/likes', likesRouter);
 app.use('/pictures', pictureRouter);
 app.use('/posts', postRouter);
