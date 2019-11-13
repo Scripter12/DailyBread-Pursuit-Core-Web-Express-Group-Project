@@ -14,8 +14,10 @@ const cors = require('cors')
 
 app.use(cors())
 
+app.use(express.json())
+
 app.use(express.urlencoded({
-    extended:false
+    extended: false
 }))
 
 app.use('/users', userRouter);
@@ -27,4 +29,4 @@ app.use('/comments', commentsRouter);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}!`)
-  });
+});
