@@ -18,9 +18,13 @@ body{
     transition: 0.3s ease;
 }
 
+
+
 #bar1{
     transform: translateY(-4px);
 }
+
+
 
 #bar3{
     transform: translateY(4px);

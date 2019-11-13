@@ -3,12 +3,36 @@
 
 <head>
   <link href="./userProfile.css" rel="stylesheet" />
+
+  <link href="./menu.css" rel="stylesheet" />
+
   <script src="./userProfile.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
-  <div id="userContainer">
+        <div id="menu-bar">
+            <div id="menu" onclick="onClickMenu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <ul id ="nav" class="nav">
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">Users</a></li>
+                <li> <a href="#">The Food Feed</a></li>
+                <li> <a href="#">About</a></li>
+                <li> <a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        
+  <div>
+    <p id= "menu-text">Menu</p>
+    <p id="site-name">Daily Bread</p>
+    <img src="./images/logo.png" alt="logo" id="logo"> 
+</div>    
+
+<div id="userContainer">
     <div id="picNameContain">
       <img
         src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555921064/shape/mentalfloss/spongebob_0_0.jpg"

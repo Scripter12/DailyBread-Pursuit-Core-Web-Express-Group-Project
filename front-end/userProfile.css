@@ -1,3 +1,7 @@
+body{
+  background-color: aliceblue;
+}
+
 #profilePic {
 width:100px;
 height:100px;
@@ -44,3 +48,4 @@ border-radius:50px;
 .picture{
   border:7px solid white;
 }
+

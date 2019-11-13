@@ -1,6 +1,7 @@
 -- uncomment bleow once database created
 
-DROP DATABASE dailyBread; 
+DROP DATABASE IF EXISTS dailybread; 
+
 
 CREATE DATABASE dailybread;
 
@@ -22,7 +23,7 @@ album_title VARCHAR
 
 CREATE TABLE posts(
     id SERIAL PRIMARY KEY,
-    post_id INT REFERENCES users(id) ON DELETE CASCADE,
+    poster_id INT REFERENCES users(id) ON DELETE CASCADE,
     body VARCHAR
 );
 
@@ -34,14 +35,14 @@ CREATE TABLE likes(
 
 CREATE TABLE comments(
     id SERIAL PRIMARY KEY,
-    comment_id INT REFERENCES posts(id) ON DELETE CASCADE,
+    post_id INT REFERENCES posts(id) ON DELETE CASCADE,
     commenter_id INT REFERENCES users(id) ON DELETE CASCADE,
     comment VARCHAR
 );
 
 CREATE TABLE pictures(
     id SERIAL PRIMARY KEY,
-    picture_id INT REFERENCES albums(id) ON DELETE CASCADE,
+    album_id INT REFERENCES albums(id) ON DELETE CASCADE,
     body VARCHAR
 );
 
@@ -51,7 +52,7 @@ VALUES('John', 'Smith', 'I LOVE PIZZA!', 'https://encrypted-tbn0.gstatic.com/ima
        ('Chelsea', 'Taylor', 'Favorite Food = Truffle Fries <3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhG4dg9j0dgnCSTITN3yEaL40O1sVuY1YS9wg-D3-OtN6XiEeL_g&s'),
        ('Wayne', 'Well', 'PANCAKES', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6QDtKfw8a5PzcxX1jkU5T-GGgk3rbluAUlVeVXVM9ANh5oS1&s');
 
-INSERT INTO posts(post_id, body)
+INSERT INTO posts(poster_id, body)
     VALUES(1, 'Yum'),
           (2, 'If You have not tried this, you need to NOW'),
           (3, 'LIT'),
@@ -68,7 +69,7 @@ INSERT INTO likes(liker_id, post_id)
            (3,2),
            (4,4);
 
-INSERT INTO comments(comment_id, commenter_id, comment)
+INSERT INTO comments(post_id, commenter_id, comment)
     VALUES(1, 3,  'Where can I get this?'),
           (2, 4,  'LOVE'),
           (3, 2,  'This is The BEST SPOT FOR TACOS'),
@@ -80,11 +81,8 @@ INSERT INTO albums(owner_id, album_title)
           (3, 'here to inspire'),
           (4, 'you hungry?');
 
-INSERT INTO pictures(picture_id, body)
+INSERT INTO pictures(album_id, body)
 VALUES (2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9suKajJ6X3NB7qAB_sq4dxZH3sN4iFXnztmHVV96S8VaPC2eq&s'),
        (3, 'https://www.foodrepublic.com/wp-content/uploads/2017/11/applepie.jpg'),
        (4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSycpiHrfz6EoG2ea-5pRK7hAROHp61bZKoVMN-zkRLgEGcdurQWw&s'),
        (1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE3txCZgnGLpRVU033OHrtwDwa5qAC0mZQ_xPH61cPpMOW8NfR_w&s');
-
-           
-       
