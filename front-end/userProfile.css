@@ -1,7 +1,5 @@
 body{
   background-color: aliceblue;
-  display:grid;
-  grid-template-rows: 50% 50%;
 }
 
 #profilePic {
@@ -24,6 +22,10 @@ border-radius:50px;
   display:flex;
 }
 
+#header{
+  display:flex;
+  justify-content:center;
+}
 
 #picNameContain {
   margin-left: 60px;
@@ -33,7 +35,7 @@ border-radius:50px;
 }
 
 #userContainer {
-  
+  display:flex;
   height: 200px;
   background-color:cyan;
   align-items: center;
@@ -46,4 +48,3 @@ border-radius:50px;
 .picture{
   border:7px solid white;
 }
-
