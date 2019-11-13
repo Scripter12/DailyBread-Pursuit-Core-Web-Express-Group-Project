@@ -4,7 +4,7 @@ const db = require('./db')
 
 router.get('/posts/:post_id', async (req, res) => {
   try {
-    let comments = await db.any(`SELECT * FROM comments WHERE comment_id = ${req.params.post_id}`)
+    let comments = await db.any(`SELECT * FROM comments WHERE post_id = ${req.params.post_id}`)
     res.json({
       data: comments
     })
@@ -17,31 +17,39 @@ router.get('/posts/:post_id', async (req, res) => {
 
 router.post('/posts/:post_id/:commenter_id', async (req, res) => {
   try {
-    await db.none(`INSERT INTO comments(comment_id,commenter_id,comment) VALUES(${req.params.post_id},${req.params.commenter_id},${req.body.comment})`)
+    await db.none(`INSERT INTO comments(post_id,commenter_id,comment) VALUES(${req.params.post_id},${req.params.commenter_id}, '${req.body.comment}')`)
     res.json({ message: "added comment" })
   }
   catch (err) {
-    res.json({ error: err })
-  }
-}
-)
-
-router.patch('/:post_id/:commenter_id', async (req, res) => {
-  try {
-    await db.none("UPDATE comments SET comment = $1 WHERE comment_id = $2 AND commenter_id = $3 AND id = $4", [req.body.comment, req.params.post_id, req.params.commenter_id, req.query.id])
-    res.json({ message: "changed comment" })
-  }
-  catch (err) {
+    console.log(err);
     res.json({ error: err })
   }
 })
 
+router.patch('/:post_id/:commenter_id', async (req, res) => {
+  try{
+    await db.none( `UPDATE comments SET comment = '${req.body.comment}' WHERE post_id = ${req.params.post_id} AND commenter_id = ${req.params.commenter_id}`)
+      res.json({
+          message: "updated post"
+      })
+    }catch(error){
+        console.log(error)
+        res.send({
+            'error': error
+        })
+    }
+})
+
 router.delete('/:post_id/:commenter_id', async (req, res) => {
   try {
-    await db.none(`DELETE FROM comments WHERE comment_id = $1 AND commenter_id = $2 AND id = $3`, [req.params.post_id, req.params.commenter_id, req.query.id])
-    res.json({ message: "deleted comment" })
-  }
-  catch {
+    let deletedComent = await db.none(`DELETE FROM comments WHERE post_id = ${req.params.post_id} AND commenter_id = ${req.params.commenter_id} AND id = ${req.body.id}`);
+    
+    res.json({ 
+      message: "deleted comment" ,
+      data : deletedComent
+  })
+  } catch(err){
+    console.log(err);
     res.json({ error: err })
   }
 })
