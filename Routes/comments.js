@@ -42,10 +42,11 @@ router.patch('/:post_id/:commenter_id', async (req, res) => {
 
 router.delete('/:post_id/:commenter_id', async (req, res) => {
   try {
-    let deletedUser = await db.none(`DELETE FROM comments WHERE post_id = ${req.params.post_id} AND commenter_id = ${req.params.commenter_id} AND id = ${req.body.id}`);
+    let deletedComent = await db.none(`DELETE FROM comments WHERE post_id = ${req.params.post_id} AND commenter_id = ${req.params.commenter_id} AND id = ${req.body.id}`);
+    
     res.json({ 
       message: "deleted comment" ,
-      data : deletedUser
+      data : deletedComent
   })
   } catch(err){
     console.log(err);
