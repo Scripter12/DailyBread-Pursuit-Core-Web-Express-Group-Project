@@ -39,8 +39,7 @@ router.post('/', async (req, res) => {
         let insertQuery = `INSERT into users(firstname, lastname, bio, proPic)
         VALUES($1, $2, $3, $4)`
 
-        if(!firstname || !lastname){
-
+        if(!req.body.firstname && !req.body.lastname){
             res.json({
                 "message": "Information Missing"
             })
@@ -53,6 +52,7 @@ router.post('/', async (req, res) => {
             })
         }
     } catch (error) {
+        console.log(error);
         res.json({
             message: error
         })
