@@ -12,8 +12,8 @@ const onClickMenu= () => {
     }else{
         menu_text.innerText = 'Menu'
     }
-    
 }
 
-
-
+document.addEventListener('DOMContentLoaded', () => {
+    
+})

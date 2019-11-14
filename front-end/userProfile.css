@@ -17,23 +17,20 @@ body{
 }
 
 
-.container{
+/* .container{
     display: grid;
     grid-template-columns: 10% 90%;
     grid-template-rows: 98vh 2vh;
-}
+} */
 
-.right{
+/* .right{
     display: grid;
 }
 
 .top{
     display: grid;
-}
+} */
 
-.bottom{
-  display: grid;
-}
 
 .bar{
     height: 5px;
@@ -58,6 +55,7 @@ body{
 #bar3{
     transform: translateY(4px);
 }
+
 
 #profilePic {
   width:100px;

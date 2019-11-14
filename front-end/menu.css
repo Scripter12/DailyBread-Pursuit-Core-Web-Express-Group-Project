@@ -1,5 +1,6 @@
 body{
     background-color: aliceblue;
+    grid-template-columns: 1fr;
 }
 
 #menu{
@@ -18,13 +19,9 @@ body{
     transition: 0.3s ease;
 }
 
-
-
 #bar1{
     transform: translateY(-4px);
 }
-
-
 
 #bar3{
     transform: translateY(4px);
@@ -32,6 +29,7 @@ body{
 
 #menu-bar{
     float: left;
+    
 }
 
 #site-name{
@@ -79,11 +77,9 @@ body{
 
 .container {
     display: grid;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
     width: 100vw;
 }
-
-
 
 .top{
     height: 10vh;
