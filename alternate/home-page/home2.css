@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #eee;
+}
+
+nav{
+    width: 100%;
+    height: 10vh;
+    width: 100vw;
+    background-color: #191919;;
+}
+
+nav p{
+    float: left;
+    line-height: 80px;
+    font-family: arial;
+    font-size: 2vw;
+    color: dodgerblue;
+}
+
+nav img{
+    float: left;
+    margin-top: 15px;
+    margin-left: 5px;
+    height: 50px;
+    width: 50px;
+
+}
+
+ul{
+    margin-left: 35%;
+}
+
+ul li {
+    list-style: none;
+    float: left;
+    line-height: 70px;
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    font-size: 1.4vw;
+    font-family: arial;
+    color: hotpink;
+    padding: 0 30px;
+    flex-flow: row;
+}
+
+ul li a:hover {
+   color: dodgerblue;
+}
+
+.sub-container{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 25vh 35vh 30vh;
+    grid-template-areas: 
+        "user-info post-feed user-photos"
+        "user-info post-feed user-photos"
+        "friends post-feed friends2";
+}
+
+.user-info{
+    grid-area: user-info;
+}
+
+.post-feed{
+    grid-area: post-feed;
+}
+
+.user-photos{
+    grid-area: user-photos;
+}
+
+.friends{
+    grid-area: friends;
+}
+
+.friends2{
+    grid-area: friends2;
+}
+
+.content-container{
+    border: 2px solid hotpink;
+    margin: 25px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.post{
+    border: 2px solid dodgerblue;
+    margin: 14px 60px;
+}
+
+

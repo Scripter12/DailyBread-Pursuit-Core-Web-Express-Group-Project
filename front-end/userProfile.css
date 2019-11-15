@@ -16,7 +16,9 @@ body{
     color: aliceblue;
 }
 
-
+#posts{
+  border: 2px solid aliceblue;
+}
 /* .container{
     display: grid;
     grid-template-columns: 10% 90%;
