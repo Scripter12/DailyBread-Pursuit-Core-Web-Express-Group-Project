@@ -63,9 +63,9 @@ ul li a:hover {
     grid-template-columns: 25% 50% 25%;
     grid-template-rows: 25vh 35vh 30vh;
     grid-template-areas: 
-        "user-info post-feed user-photos"
-        "user-info post-feed user-photos"
-        "friends post-feed friends2";
+        "user-info user-info friends"
+        "user-info user-info friends2"
+        "user-photos user-photos user-photos";
 }
 
 .user-info{
@@ -107,5 +107,3 @@ ul li a:hover {
     height:70px;
     border-radius:50px;
     }
-
-

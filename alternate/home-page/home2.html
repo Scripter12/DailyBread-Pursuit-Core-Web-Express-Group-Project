@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./home2.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="home2.js"></script>
-    <title>Document</title>
+    <title>Daily Bread - Home</title>
 </head>
 <body>
     <div class="main-container">
@@ -14,21 +15,32 @@
             <p>Daily Bread </p>
             <img src="../../front-end/images/logo.png" alt="logo">
             <ul>
-                <li> <a href="#">Home</a></li>
-                <li> <a href="#">Profile</a></li>
+                <li> <a href="./home2.html">Home</a></li>
+                <li> <a href="../profile-page/profile.html">Profile</a></li>
                 <li> <a href="#">User Search</a></li>
             </ul>
         </nav>
 
         <div class="sub-container">
             
-            <div class="user-info content-container" id="1">Basic User Info</div>
+            <div class="user-info content-container" id="1">
+                <div id="userContainer">
+                    <div id="picNameContain">
+                        <img src="https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555921064/shape/mentalfloss/spongebob_0_0.jpg" id="profilePic" />
+                        <p id="name">name</p>
+                    </div>
+                    <div id="bio-container">
+                        <p id="bio">bio</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="post-feed content-container" id="2">Live Feed
                 <div id='post' class="post" ondblclick="like_or_unlike()"> hi </div>
             </div>
-            <div class="user-photos content-container" id="3">Friends</div>
-            <div class="friends content-container" id="4">four</div>
-            <div class="friends2 content-container" id="5">five</div>
+            <div class="user-photos content-container" id="3">Create Post</div>
+            <div class="friends content-container" id="4">IDK</div>
+            <div class="friends2 content-container" id="5">IDK</div>
 
         
         </div>
