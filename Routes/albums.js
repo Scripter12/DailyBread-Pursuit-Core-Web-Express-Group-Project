@@ -4,7 +4,6 @@ const db = require('./db')
 
 router.get('/:owner_id', async (req, res) => {
     try{
-   
   let getAlbums = await db.any(`SELECT 
                  a.album_title albums,
                  p.body pictures
