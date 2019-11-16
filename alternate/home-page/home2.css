@@ -101,11 +101,25 @@ ul li a:hover {
     border-radius: 5px;
 }
 
+.comment{
+    border: 2px solid hotpink;
+    margin: 14px 90px;
+    border-radius: 5px;
+}
+
 #profilePic {
     padding-top: 10px;
     width:70px;
     height:70px;
     border-radius:50px;
-    }
+}
+
+#bio-container{
+    padding-top: 20px;
+}
+
+#post-input{
+    height: 100px;
+}
 
 

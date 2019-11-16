@@ -12,11 +12,19 @@ const like_or_unlike = () =>{
 
 document.addEventListener('DOMContentLoaded', () => {
     getAllPosts();
+    getUser()
+
+    let post = document.querySelector('#post')
+    post.addEventListener('dblclick', like_or_unlike())
 
 })
 
+document.addEventListener('submit', ()=>{
+  submitPost()
+})
+
 async function getAllPosts() {
-    let postContainer = document.querySelector("#photos");
+    let postContainer = document.querySelector(".post-feed");
     let response = await axios.get("http://localhost:3000/posts");
     while (postContainer.firstChild) {
       postContainer.removeChild(postContainer.firstChild)
@@ -33,27 +41,37 @@ async function getAllPosts() {
         })
         console.log(comArr)
         let post = document.createElement("div");
-        let line = document.createElement("div");
         let body = document.createElement("p");
-        let like = document.createElement("span");
-        let comments = document.createElement("div");
-    
-        comArr.forEach(elem => {
-          comments.appendChild(elem)
-        })
-        let likebutton = document.createElement("button");
+
         post.setAttribute("class", "post")
-        line.setAttribute("class", "line")
-        comments.setAttribute("class", "comments")
-        likebutton.setAttribute("class", "likeButton")
         body.innerText = elem.body
         post.appendChild(body)
-        post.appendChild(line)
-        line.appendChild(likebutton)
-        line.appendChild(like)
-        line.appendChild(comments)
+        //line.appendChild(comments)
         postContainer.appendChild(post)
       })
     
+    }
+
+    async function getUser(){
+      let profilePic = document.querySelector('#profilePic')
+      let name = document.querySelector('#name')
+      let bio = document.querySelector('#bio')
+      let response = await axios.get("http://localhost:3000/users/1");
+      console.log(response.data.body.user);
+      profilePic.src = response.data.body.user.propic
+      bio.innerText = response.data.body.user.bio
+      name.innerText = `${response.data.body.user.firstname} ${response.data.body.user.lastname} `
+    }
+
+    async function submitPost(){
+      event.preventDefault()
+      let num = 5
+      let inputPost = document.querySelector("#post-input").value
+      await axios.post('http://localhost:3000/posts', {
+        post_id: num,
+        body: inputPost
+      })
+        num ++
+        getAllPosts() 
     }
     

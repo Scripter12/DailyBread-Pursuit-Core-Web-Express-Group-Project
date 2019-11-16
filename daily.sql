@@ -47,9 +47,10 @@ CREATE TABLE pictures(
 );
 
 INSERT INTO users( firstname, lastname, bio, proPic)
-VALUES('John', 'Smith', 'I LOVE PIZZA!', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm9z3wJSpof47czB3cgXlkQ8AD8CcxPNKwwKJs1DY6X8di6X-R&s'),
+VALUES ('Garfield', 'Cat', 'LASAGNA', 'https://i.pinimg.com/236x/d1/df/5d/d1df5d318960db1000e02b81b7b26bb4--garfield-cartoon-cartoon-cats.jpg'),
+       ('John', 'Smith', 'I LOVE PIZZA!', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm9z3wJSpof47czB3cgXlkQ8AD8CcxPNKwwKJs1DY6X8di6X-R&s'),
        ('Amy', 'Lowe', 'Did Someone Say FOOD!', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ZcdCok_Es2IeJfCGN3_x8_OxKX88iqct0a4RtNTf6s21R13Efw&s'),
-       ('Chelsea', 'Taylor', 'Favorite Food = Truffle Fries <3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhG4dg9j0dgnCSTITN3yEaL40O1sVuY1YS9wg-D3-OtN6XiEeL_g&s'),
+       ('Chelsea', 'Allen', 'Favorite Food = Truffle Fries <3', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhG4dg9j0dgnCSTITN3yEaL40O1sVuY1YS9wg-D3-OtN6XiEeL_g&s'),
        ('Wayne', 'Well', 'PANCAKES', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6QDtKfw8a5PzcxX1jkU5T-GGgk3rbluAUlVeVXVM9ANh5oS1&s');
 
 INSERT INTO posts(poster_id, body)
